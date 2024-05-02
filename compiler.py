@@ -32,13 +32,23 @@ def remove_blank_lines(text):
     non_blank_lines = [line for line in lines if line.strip() != '']
     return '\n'.join(non_blank_lines)
 
+
 def normalize_spaces(text):
     lines = text.split('\n')
     normalized_lines = []
     for line in lines:
+        # Insert spaces around operators and parentheses
         for operator in ['=', '+', '-', '*', '/', '(', ')', ';']:
             line = line.replace(operator, f' {operator} ')
-        normalized_lines.append(' '.join(line.split()))
+
+        # Clean up extra spaces and standardize spacing
+        line = ' '.join(line.split())
+
+        # Remove space between function name and opening parenthesis
+        line = line.replace('write (', 'write(')
+
+        normalized_lines.append(line)
+
     return '\n'.join(normalized_lines)
 
 
