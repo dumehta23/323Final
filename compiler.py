@@ -44,6 +44,9 @@ def normalize_spaces(text):
         # Clean up extra spaces and standardize spacing
         line = ' '.join(line.split())
 
+        # Specific replacement for "value = " inside the write function
+        line = line.replace('“value = ”,', '“value=” ,')
+
         # Remove space between function name and opening parenthesis
         line = line.replace('write (', 'write(')
 
