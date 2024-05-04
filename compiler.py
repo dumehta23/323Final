@@ -67,7 +67,7 @@ with open(output_file_path, 'w', encoding='utf-8') as output_file:
 
 ############# PART 2 ###################
 parsing_table = {
-    'P': {'program': 'program I , var DL begin SL end.'},
+    'P': {'program': 'program I ; var DL begin SL end.'},
     'I': {'p': 'Le PI', 'q': 'Le PI', 'r': 'Le PI', 's': 'Le PI'},
     'PI': {'0': 'Di PI', '1': 'Di PI', '2': 'Di PI', '3': 'Di PI', '4': 'Di PI',
            '5': 'Di PI', '6': 'Di PI', '7': 'Di PI', '8': 'Di PI', '9': 'Di PI',
