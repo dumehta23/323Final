@@ -64,3 +64,39 @@ normalized_content = normalize_spaces(cleaner_content)
 
 with open(output_file_path, 'w', encoding='utf-8') as output_file:
     output_file.write(normalized_content)
+
+############# PART 2 ###################
+parsing_table = {
+    'P': {'program': 'program I , var DL begin SL end.'},
+    'I': {'p': 'Le PI', 'q': 'Le PI', 'r': 'Le PI', 's': 'Le PI'},
+    'PI': {'0': 'Di PI', '1': 'Di PI', '2': 'Di PI', '3': 'Di PI', '4': 'Di PI',
+           '5': 'Di PI', '6': 'Di PI', '7': 'Di PI', '8': 'Di PI', '9': 'Di PI',
+           'p': 'Di PI', 'q': 'Di PI', 'r': 'Di PI', 's': 'Di PI', ')': 'λ', '*': 'λ',
+           '/': 'λ', '+': 'λ', '-': 'λ', '=': 'λ', ';': 'λ', ':': 'λ', ',': 'λ'},
+    'DL': {'p': 'D : T ;', 'q': 'D : T ;', 'r': 'D : T ;', 's': 'D : T ;'},
+    'D': {'p': 'I , D', 'q': 'I , D', 'r': 'I , D', 's': 'I , D'},
+    'T': {'integer': 'integer'},
+    'SL': {'p': 'S SL', 'q': 'S SL', 'r': 'S SL', 's': 'S SL', 'write': 'S SL'},
+    'S': {'p': 'A', 'q': 'A', 'r': 'A', 's': 'A', 'write': 'W'},
+    'W': {'write': 'write ( St I ) ;'},
+    'St': {'p': 'λ', 'q': 'λ', 'r': 'λ', 's': 'λ', '"value="': '"value=" ,'},
+    'A': {'p': 'I = E ;', 'q': 'I = E ;', 'r': 'I = E ;', 's': 'I = E ;'},
+    'E': {'0': 'Te PE', '1': 'Te PE', '2': 'Te PE', '3': 'Te PE', '4': 'Te PE',
+          '5': 'Te PE', '6': 'Te PE', '7': 'Te PE', '8': 'Te PE', '9': 'Te PE',
+          'p': 'Te PE', 'q': 'Te PE', 'r': 'Te PE', 's': 'Te PE', '(': 'Te PE', '+': 'Te PE', '-': 'Te PE'},
+    'PE': {')': 'λ', '+': '+ Te PE', '-': '- Te PE'},
+    'Te': {'0': 'F PT', '1': 'F PT', '2': 'F PT', '3': 'F PT', '4': 'F PT', '5': 'F PT',
+           '6': 'F PT', '7': 'F PT', '8': 'F PT', '9': 'F PT', 'p': 'F PT', 'q': 'F PT',
+           'r': 'F PT', 's': 'F PT', '(': 'F PT', '+': 'F PT', '-': 'F PT'},
+    'PT': {')': 'λ', '*': '* F PT', '/': '/ F PT', '+': 'λ', '-': 'λ', ';': 'λ'},
+    'F': {'0': 'N', '1': 'N', '2': 'N', '3': 'N', '4': 'N', '5': 'N', '6': 'N', '7': 'N', '8': 'N', '9': 'N',
+          'p': 'I', 'q': 'I', 'r': 'I', 's': 'I', '(': '( E )', '+': 'N', '-': 'N'},
+    'N': {'+': 'Sn Di PN', '-': 'Sn Di PN'},
+    'PN': {'0': 'Di PN', '1': 'Di PN', '2': 'Di PN', '3': 'Di PN', '4': 'Di PN', '5': 'Di PN',
+           '6': 'Di PN', '7': 'Di PN', '8': 'Di PN', '9': 'Di PN',
+           ')': 'λ', '*': 'λ', '/': 'λ', '+': 'λ', '-': 'λ', ';': 'λ'},
+    'Sn': {'0': 'λ', '1': 'λ', '2': 'λ', '3': 'λ', '4': 'λ', '5': 'λ', '6': 'λ', '7': 'λ',
+           '8': 'λ', '9': 'λ', ')': 'λ', '*': 'λ', '/': 'λ', '+': 'λ', '-': 'λ', ';': 'λ'},
+    'Di': {'0': '0', '1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9'},
+    'Le': {'p': 'p', 'q': 'q', 'r': 'r', 's': 's'},
+}
