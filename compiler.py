@@ -1,3 +1,4 @@
+#================================= PART 1 =======================================#
 def remove_comments(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
@@ -26,12 +27,10 @@ def remove_comments(file_path):
 
     return clean_content.strip()
 
-
 def remove_blank_lines(text):
     lines = text.split('\n')
     non_blank_lines = [line for line in lines if line.strip() != '']
     return '\n'.join(non_blank_lines)
-
 
 def normalize_spaces(text):
     lines = text.split('\n')
@@ -47,13 +46,12 @@ def normalize_spaces(text):
         # Specific replacement for "value = " inside the write function
         line = line.replace('“value = ”,', '“value=” ,')
 
-        # Remove space between function name and opening parenthesis
+        # # Remove space between function name and opening parenthesis
         line = line.replace('write (', 'write(')
 
         normalized_lines.append(line)
 
     return '\n'.join(normalized_lines)
-
 
 input_file_path = 'finalv1.txt'
 output_file_path = 'final24.txt'
@@ -65,9 +63,10 @@ normalized_content = normalize_spaces(cleaner_content)
 with open(output_file_path, 'w', encoding='utf-8') as output_file:
     output_file.write(normalized_content)
 
-############# PART 2 ###################
+#======================================= PART 2 ==================================#
+
 parsing_table = {
-    'P': {'program': 'program I ; var DL begin SL end.'},
+    'P': {'program': 'program I , var DL begin SL end.'},
     'I': {'p': 'Le PI', 'q': 'Le PI', 'r': 'Le PI', 's': 'Le PI'},
     'PI': {'0': 'Di PI', '1': 'Di PI', '2': 'Di PI', '3': 'Di PI', '4': 'Di PI',
            '5': 'Di PI', '6': 'Di PI', '7': 'Di PI', '8': 'Di PI', '9': 'Di PI',
@@ -77,6 +76,7 @@ parsing_table = {
     'D': {'p': 'I , D', 'q': 'I , D', 'r': 'I , D', 's': 'I , D'},
     'T': {'integer': 'integer'},
     'SL': {'p': 'S SL', 'q': 'S SL', 'r': 'S SL', 's': 'S SL', 'write': 'S SL'},
+    'PSL': {'p': 'SL', 'q': 'SL', 'r': 'SL', 's': 'SL', 'W': 'SL'},
     'S': {'p': 'A', 'q': 'A', 'r': 'A', 's': 'A', 'write': 'W'},
     'W': {'write': 'write ( St I ) ;'},
     'St': {'p': 'λ', 'q': 'λ', 'r': 'λ', 's': 'λ', '"value="': '"value=" ,'},
@@ -100,3 +100,8 @@ parsing_table = {
     'Di': {'0': '0', '1': '1', '2': '2', '3': '3', '4': '4', '5': '5', '6': '6', '7': '7', '8': '8', '9': '9'},
     'Le': {'p': 'p', 'q': 'q', 'r': 'r', 's': 's'},
 }
+
+
+
+
+
