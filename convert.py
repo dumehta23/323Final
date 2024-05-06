@@ -18,7 +18,8 @@ def remove_semicolons(lines):
     return lines
 
 def fix_parentheses(line):
-    return re.sub(r'\(\s+(.*?)\s+\)', r'(\1)', line)  # Remove spaces inside parentheses
+    return line.replace('( ', '(').replace(' )', ')')
+
 
 def write_to_print(line):
     return line.replace('write', 'print')
